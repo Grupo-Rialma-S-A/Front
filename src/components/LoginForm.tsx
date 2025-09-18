@@ -26,6 +26,7 @@ export default function LoginForm() {
       if (result.success && result.user) {
         login(result.user);
 
+        // Verifica se o usuário precisa trocar a senha
         if (result.user.trocarSenha) {
           router.push("/trocar-senha");
         } else {
@@ -43,22 +44,25 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen relative flex items-center justify-center p-4">
+    <div className="min-h-screen relative flex flex-col items-center justify-center p-4">
       <AnimatedBackground />
+
+      <div className="mb-8 relative z-10">
+        <img
+          src="/logo.png"
+          alt="Rialma Logo"
+          className=" h-32 mx-auto drop-shadow-lg"
+          onError={(e) => {
+            e.currentTarget.style.display = "none";
+          }}
+        />
+      </div>
 
       <div className="bg-white/90 backdrop-blur-sm border-2 border-green-200 rounded-lg w-full max-w-md relative z-10 shadow-lg">
         <div className="bg-green-100 border-b-2 border-green-200 p-4 text-center rounded-t-lg">
-          <div className="flex items-center justify-center space-x-3 mb-2">
-            <img
-              src="/logo.jpeg"
-              alt="Rialma Logo"
-              className="w-10 h-10 rounded"
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-              }}
-            />
-            <h1 className="text-xl font-bold text-green-800">Sistema Rialma</h1>
-          </div>
+          <h1 className="text-xl font-bold text-green-800 mb-2">
+            Sistema Rialma
+          </h1>
           <p className="text-sm text-green-700">Gestão Agropecuária</p>
         </div>
 
