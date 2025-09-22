@@ -231,13 +231,13 @@ export default function LoginForm() {
           </form>
 
           {/* Additional Options */}
-          <div className="mt-6 pt-6 border-t border-slate-200">
+          {/* <div className="mt-6 pt-6 border-t border-slate-200">
             <div className="text-center">
               <button className="text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors duration-200">
                 Esqueceu sua senha?
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Footer */}
