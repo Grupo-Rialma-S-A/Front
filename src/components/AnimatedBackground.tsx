@@ -13,101 +13,130 @@ export default function AnimatedBackground() {
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-white to-green-100" />
+      {/* Main gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200" />
 
+      {/* Overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-blue-200/50 via-transparent to-blue-100/30" />
+
+      {/* Animated blobs container */}
       <div className="absolute inset-0">
+        {/* Layer 1 - Largest blobs */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-40">
+          <div className="smoke-blob smoke-blob-1 bg-gradient-to-r from-blue-300/30 to-blue-400/40" />
+          <div className="smoke-blob smoke-blob-2 bg-gradient-to-l from-blue-400/25 to-transparent" />
+          <div className="smoke-blob smoke-blob-3 bg-gradient-to-br from-blue-200/35 to-blue-300/30" />
+        </div>
+
+        {/* Layer 2 - Medium blobs */}
         <div className="absolute top-0 left-0 w-full h-full opacity-30">
-          <div className="smoke-blob smoke-blob-1 bg-gradient-to-r from-green-100/40 to-white/60" />
-          <div className="smoke-blob smoke-blob-2 bg-gradient-to-l from-green-200/30 to-transparent" />
-          <div className="smoke-blob smoke-blob-3 bg-gradient-to-br from-white/50 to-green-50/40" />
+          <div className="smoke-blob smoke-blob-4 bg-gradient-to-tl from-blue-300/40 to-blue-200/25" />
+          <div className="smoke-blob smoke-blob-5 bg-gradient-to-r from-blue-400/30 to-blue-500/20" />
+          <div className="smoke-blob smoke-blob-6 bg-gradient-to-bl from-blue-300/40 to-transparent" />
         </div>
 
+        {/* Layer 3 - Smallest blobs */}
         <div className="absolute top-0 left-0 w-full h-full opacity-20">
-          <div className="smoke-blob smoke-blob-4 bg-gradient-to-tl from-green-100/50 to-white/30" />
-          <div className="smoke-blob smoke-blob-5 bg-gradient-to-r from-white/40 to-green-200/20" />
-          <div className="smoke-blob smoke-blob-6 bg-gradient-to-bl from-green-50/60 to-transparent" />
-        </div>
-
-        <div className="absolute top-0 left-0 w-full h-full opacity-15">
-          <div className="smoke-blob smoke-blob-7 bg-gradient-to-tr from-green-200/30 to-white/20" />
-          <div className="smoke-blob smoke-blob-8 bg-gradient-to-l from-green-100/40 to-green-50/30" />
+          <div className="smoke-blob smoke-blob-7 bg-gradient-to-tr from-blue-200/35 to-blue-300/25" />
+          <div className="smoke-blob smoke-blob-8 bg-gradient-to-l from-blue-300/30 to-blue-400/35" />
+          <div className="smoke-blob smoke-blob-9 bg-gradient-to-br from-blue-400/25 to-blue-300/30" />
         </div>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-green-50/20 via-transparent to-white/10" />
+      {/* Subtle pattern overlay */}
+      <div className="absolute inset-0 opacity-10">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `radial-gradient(circle at 25px 25px, rgba(59, 130, 246, 0.3) 1px, transparent 0)`,
+            backgroundSize: "50px 50px",
+          }}
+        />
+      </div>
+
+      {/* Top highlight */}
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-200/20 via-transparent to-transparent" />
 
       <style jsx>{`
         .smoke-blob {
           position: absolute;
           border-radius: 50%;
-          filter: blur(40px);
+          filter: blur(60px);
           animation-timing-function: ease-in-out;
           animation-iteration-count: infinite;
           animation-direction: alternate;
         }
 
         .smoke-blob-1 {
-          width: 300px;
-          height: 300px;
-          top: -10%;
-          left: -5%;
-          animation: float1 20s infinite;
+          width: 400px;
+          height: 400px;
+          top: -15%;
+          left: -10%;
+          animation: float1 25s infinite;
         }
 
         .smoke-blob-2 {
-          width: 250px;
-          height: 250px;
-          top: 20%;
-          right: -10%;
-          animation: float2 25s infinite;
+          width: 350px;
+          height: 300px;
+          top: 15%;
+          right: -15%;
+          animation: float2 30s infinite;
         }
 
         .smoke-blob-3 {
-          width: 400px;
-          height: 200px;
-          bottom: -5%;
-          left: 10%;
-          animation: float3 30s infinite;
+          width: 450px;
+          height: 250px;
+          bottom: -10%;
+          left: 5%;
+          animation: float3 35s infinite;
         }
 
         .smoke-blob-4 {
-          width: 350px;
-          height: 350px;
-          top: 30%;
-          left: 20%;
-          animation: float4 22s infinite;
+          width: 300px;
+          height: 400px;
+          top: 25%;
+          left: 15%;
+          animation: float4 28s infinite;
         }
 
         .smoke-blob-5 {
-          width: 200px;
-          height: 300px;
-          bottom: 20%;
-          right: 15%;
-          animation: float5 28s infinite;
+          width: 250px;
+          height: 350px;
+          bottom: 15%;
+          right: 10%;
+          animation: float5 32s infinite;
         }
 
         .smoke-blob-6 {
-          width: 280px;
+          width: 320px;
           height: 280px;
-          top: 60%;
-          left: -8%;
-          animation: float6 24s infinite;
+          top: 55%;
+          left: -12%;
+          animation: float6 26s infinite;
         }
 
         .smoke-blob-7 {
-          width: 320px;
-          height: 180px;
-          top: 10%;
-          right: 20%;
-          animation: float7 26s infinite;
+          width: 280px;
+          height: 200px;
+          top: 5%;
+          right: 25%;
+          animation: float7 24s infinite;
         }
 
         .smoke-blob-8 {
-          width: 240px;
-          height: 240px;
-          bottom: 10%;
-          left: 40%;
-          animation: float8 32s infinite;
+          width: 200px;
+          height: 300px;
+          bottom: 5%;
+          left: 35%;
+          animation: float8 29s infinite;
+        }
+
+        .smoke-blob-9 {
+          width: 180px;
+          height: 220px;
+          top: 40%;
+          right: 5%;
+          animation: float9 27s infinite;
         }
 
         @keyframes float1 {
@@ -116,13 +145,13 @@ export default function AnimatedBackground() {
             transform: translate(0, 0) rotate(0deg) scale(1);
           }
           25% {
-            transform: translate(20px, -30px) rotate(2deg) scale(1.1);
+            transform: translate(30px, -40px) rotate(3deg) scale(1.15);
           }
           50% {
-            transform: translate(-15px, -20px) rotate(-1deg) scale(0.9);
+            transform: translate(-20px, -30px) rotate(-2deg) scale(0.9);
           }
           75% {
-            transform: translate(25px, -10px) rotate(1deg) scale(1.05);
+            transform: translate(35px, -15px) rotate(2deg) scale(1.05);
           }
         }
 
@@ -132,10 +161,10 @@ export default function AnimatedBackground() {
             transform: translate(0, 0) rotate(0deg) scale(1);
           }
           33% {
-            transform: translate(-25px, 20px) rotate(-2deg) scale(1.15);
+            transform: translate(-35px, 30px) rotate(-3deg) scale(1.2);
           }
           66% {
-            transform: translate(15px, -25px) rotate(1deg) scale(0.85);
+            transform: translate(25px, -35px) rotate(2deg) scale(0.85);
           }
         }
 
@@ -145,16 +174,16 @@ export default function AnimatedBackground() {
             transform: translate(0, 0) rotate(0deg) scale(1);
           }
           20% {
-            transform: translate(30px, -15px) rotate(1deg) scale(1.1);
+            transform: translate(40px, -20px) rotate(2deg) scale(1.1);
           }
           40% {
-            transform: translate(-20px, -30px) rotate(-1deg) scale(0.9);
+            transform: translate(-30px, -40px) rotate(-2deg) scale(0.95);
           }
           60% {
-            transform: translate(25px, -5px) rotate(2deg) scale(1.05);
+            transform: translate(35px, -10px) rotate(3deg) scale(1.08);
           }
           80% {
-            transform: translate(-10px, -20px) rotate(-1deg) scale(0.95);
+            transform: translate(-15px, -30px) rotate(-1deg) scale(0.92);
           }
         }
 
@@ -164,7 +193,7 @@ export default function AnimatedBackground() {
             transform: translate(0, 0) rotate(0deg) scale(1);
           }
           50% {
-            transform: translate(-30px, 25px) rotate(-2deg) scale(1.2);
+            transform: translate(-40px, 35px) rotate(-3deg) scale(1.25);
           }
         }
 
@@ -174,10 +203,10 @@ export default function AnimatedBackground() {
             transform: translate(0, 0) rotate(0deg) scale(1);
           }
           25% {
-            transform: translate(20px, 30px) rotate(1deg) scale(0.8);
+            transform: translate(30px, 40px) rotate(2deg) scale(0.8);
           }
           75% {
-            transform: translate(-25px, -20px) rotate(-1deg) scale(1.1);
+            transform: translate(-35px, -25px) rotate(-2deg) scale(1.15);
           }
         }
 
@@ -187,10 +216,10 @@ export default function AnimatedBackground() {
             transform: translate(0, 0) rotate(0deg) scale(1);
           }
           40% {
-            transform: translate(35px, -25px) rotate(2deg) scale(1.15);
+            transform: translate(45px, -35px) rotate(3deg) scale(1.18);
           }
           80% {
-            transform: translate(-15px, 20px) rotate(-1deg) scale(0.9);
+            transform: translate(-20px, 30px) rotate(-2deg) scale(0.88);
           }
         }
 
@@ -200,10 +229,10 @@ export default function AnimatedBackground() {
             transform: translate(0, 0) rotate(0deg) scale(1);
           }
           30% {
-            transform: translate(-20px, -35px) rotate(-1deg) scale(1.05);
+            transform: translate(-25px, -45px) rotate(-2deg) scale(1.08);
           }
           70% {
-            transform: translate(25px, 15px) rotate(1deg) scale(0.95);
+            transform: translate(35px, 20px) rotate(2deg) scale(0.92);
           }
         }
 
@@ -213,13 +242,23 @@ export default function AnimatedBackground() {
             transform: translate(0, 0) rotate(0deg) scale(1);
           }
           25% {
-            transform: translate(-30px, -20px) rotate(-2deg) scale(1.1);
+            transform: translate(-40px, -25px) rotate(-3deg) scale(1.12);
           }
           50% {
-            transform: translate(20px, -30px) rotate(1deg) scale(0.85);
+            transform: translate(30px, -40px) rotate(2deg) scale(0.82);
           }
           75% {
-            transform: translate(-15px, 25px) rotate(-1deg) scale(1.05);
+            transform: translate(-20px, 35px) rotate(-1deg) scale(1.06);
+          }
+        }
+
+        @keyframes float9 {
+          0%,
+          100% {
+            transform: translate(0, 0) rotate(0deg) scale(1);
+          }
+          50% {
+            transform: translate(25px, -30px) rotate(2deg) scale(1.1);
           }
         }
       `}</style>
