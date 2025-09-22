@@ -152,7 +152,7 @@ const performLogout = async (): Promise<void> => {
     clearUserData();
     // Redirecionar para página de login se necessário
     if (typeof window !== "undefined") {
-      window.location.href = "/login";
+      window.location.href = "/";
     }
   }
 };
