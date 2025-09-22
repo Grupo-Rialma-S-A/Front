@@ -299,11 +299,14 @@ export default function ListarUsuarios({ user }: ListarUsuariosProps) {
 
     try {
       const isBlocked = selectedUser.DataBloqueado !== null;
-      const action = isBlocked ? "unblock" : "block";
+      const endpoint = isBlocked ? "/users/unblock" : "/users/block";
 
-      // Usando apiCall para bloquear/desbloquear usuário
-      await apiCall(`/users/${selectedUser.CodUsu}/${action}`, {
-        method: "PATCH",
+      // Usando apiCall para bloquear/desbloquear usuário com o novo formato
+      await apiCall(endpoint, {
+        method: "POST",
+        body: {
+          codUsu: selectedUser.CodUsu,
+        },
         requireAuth: true,
       });
 

@@ -262,7 +262,7 @@ export default function CadastrarUsuario({ user }: CadastrarUsuarioProps) {
                 <Box>
                   <TextField
                     fullWidth
-                    label="Nome do Usuário *"
+                    label="Nome do Usuário"
                     value={nomeUsu}
                     onChange={(e) => setNomeUsu(e.target.value)}
                     placeholder="Ex: Teste123"
@@ -291,7 +291,7 @@ export default function CadastrarUsuario({ user }: CadastrarUsuarioProps) {
                   <TextField
                     fullWidth
                     type="email"
-                    label="Email *"
+                    label="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="teste123@gmail.com"
@@ -345,7 +345,7 @@ export default function CadastrarUsuario({ user }: CadastrarUsuarioProps) {
                   <TextField
                     fullWidth
                     type={showPassword ? "text" : "password"}
-                    label="Senha *"
+                    label="Senha"
                     value={senha}
                     onChange={(e) => setSenha(e.target.value)}
                     placeholder="••••••••"
